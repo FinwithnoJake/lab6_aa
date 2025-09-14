@@ -30,7 +30,7 @@ public class LoadManager {
     private final String fileName;
 
     public LoadManager(String fileName) {
-        if (!(new File(fileName).exists()))  fileName = "./person/" + fileName + ".json";
+        if (!(new File(fileName).exists()))  fileName = "./city/" + fileName + ".json";
         this.fileName = fileName;
     }
 

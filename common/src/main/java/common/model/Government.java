@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public enum Government implements Serializable {
     DESPOTISM,
+    DEMOCRACY,
     DIARCHY,
     NOOCRACY,
     OLIGARCHY,

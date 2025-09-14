@@ -12,7 +12,6 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Главный класс клиентского приложения.
- *
  */
 public class App {
     private static final int PORT = 8080;
@@ -23,7 +22,6 @@ public class App {
 
     /**
      * The entry point of application.
-     *
      * @param args the input arguments
      */
     public static void main(String[] args) {
