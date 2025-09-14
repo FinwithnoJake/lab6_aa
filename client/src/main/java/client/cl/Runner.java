@@ -169,8 +169,7 @@ public class Runner {
                 else return scriptMode("lab6_aa/city/" + userCommand[1]);
             }
             default -> { if (!command.apply(userCommand)) return ExitCode.ERROR; }
-        };
-
+        }
         return ExitCode.OK;
     }
 }

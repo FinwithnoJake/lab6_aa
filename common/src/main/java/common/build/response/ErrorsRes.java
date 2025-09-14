@@ -6,7 +6,6 @@ package common.build.response;
 public class ErrorsRes extends Response {
     /**
      * Instantiates a new Errors res.
-     *
      * @param error the error
      */
     public ErrorsRes(String error) {

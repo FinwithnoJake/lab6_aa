@@ -4,7 +4,6 @@ import common.build.request.Request;
 import common.build.response.HeadRes;
 import common.build.response.Response;
 import server.repo.CityRepository;
-import server.repo.CityRepository;
 
 /**
  * Команда 'head'. Выводит первый элемент коллекции.
