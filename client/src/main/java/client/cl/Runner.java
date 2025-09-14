@@ -1,6 +1,6 @@
 package client.cl;
 
-import client.App;
+import client.ClientApp;
 import client.command.*;
 import client.netw.TCP;
 import client.util.console.Console;
@@ -41,7 +41,7 @@ public class Runner {
     private final TCP client;
     private final Map<String, Command> commands;
 
-    private final Logger logger = App.logger;
+    private final Logger logger = ClientApp.logger;
     private final List<String> scriptStack = new ArrayList<>();
 
     public Runner(TCP client, Console console) {
@@ -51,7 +51,8 @@ public class Runner {
         this.commands = new HashMap<>() {{
             put(Commands.ADD, new Add(console, client));
             put(Commands.CLEAR, new Clear(console, client));
-            put(Commands.EXIT, new Exit(console));
+            put(Commands.EXECUTE_SCRIPT, new ExecuteScript(console));
+            put(Commands.EXIT, new Exit(console, client));
             put(Commands.HEAD, new Head(console, client));
             put(Commands.HELP, new Help(console, client));
             put(Commands.HISTORY, new Help(console, client));

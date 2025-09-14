@@ -6,7 +6,6 @@ import server.managers.CommandManager;
 
 /**
  * Команда 'help'. Выводит справку по доступным командам
- *
  */
 public class Help extends Command {
     private final CommandManager commandManager;

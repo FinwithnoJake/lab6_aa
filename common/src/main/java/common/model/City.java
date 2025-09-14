@@ -67,7 +67,7 @@ public class City extends Element {
     @Override
     public String toString() {
         return "City #" + id +
-                " (created on " + creationDate + ")" +
+                " (created on " + LocalDate.now() + ")" +
                 "\n Название: " + name +
                 "\n Местоположение: " + coordinates +
                 "\n Создан: " + creationDate +

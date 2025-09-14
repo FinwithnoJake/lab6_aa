@@ -19,7 +19,7 @@ import java.net.UnknownHostException;
 /**
  * Серверная часть приложения.
  */
-public class App {
+public class ServerApp {
     /**
      * The constant PORT.
      */
@@ -36,7 +36,7 @@ public class App {
      */
     public static void main(String[] args) {
         try {
-            var loadManager = new LoadManager(args[0]);
+            var loadManager = new LoadManager("App.java.json");
             var repository = new CityRepository(loadManager);
 
             Runtime.getRuntime().addShutdownHook(new Thread(repository::save));
@@ -62,6 +62,7 @@ public class App {
             var commandManager = new CommandManager() {{
                 register(Commands.ADD, new Add(repository));
                 register(Commands.CLEAR, new Clear(repository));
+                register(Commands.EXIT, new Exit(repository));
                 register(Commands.HEAD, new Head(repository));
                 register(Commands.HELP, new Help(this));
                 register(Commands.INFO, new Info(repository));

@@ -48,4 +48,8 @@ public interface Commands {
      */
     String EXIT = "exit";
 
+    /**
+     * The constant EXECUTE_SCRIPT.
+     */
+    String EXECUTE_SCRIPT = "execute_script";
 }

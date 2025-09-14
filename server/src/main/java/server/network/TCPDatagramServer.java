@@ -5,7 +5,7 @@ import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 import org.slf4j.Logger;
-import server.App;
+import server.ServerApp;
 import server.handler.CommandHandler;
 
 import java.io.IOException;
@@ -22,7 +22,7 @@ public class TCPDatagramServer extends TCPServer {
 
     private final DatagramSocket datagramSocket;
 
-    private final Logger logger = App.logger;
+    private final Logger logger = ServerApp.logger;
 
     /**
      * Instantiates a new Udp datagram server.

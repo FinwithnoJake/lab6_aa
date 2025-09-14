@@ -13,8 +13,7 @@ import java.util.NoSuchElementException;
 import java.util.PriorityQueue;
 
 import common.model.City;
-import org.checkerframework.checker.units.qual.C;
-import server.App;
+import server.ServerApp;
 import server.util.LocalDateAdapter;
 
 /**
@@ -41,9 +40,9 @@ public class LoadManager {
     public void writeCollection(Collection<City> collection) {
         try (PrintWriter collectionPrintWriter = new PrintWriter(new File(fileName))) {
             collectionPrintWriter.println(gson.toJson(collection));
-            App.logger.info("Коллекция успешна сохранена в файл!");
+            ServerApp.logger.info("Коллекция успешна сохранена в файл!");
         } catch (IOException exception) {
-            App.logger.error("Загрузочный файл не может быть открыт!");
+            ServerApp.logger.error("Загрузочный файл не может быть открыт!");
         }
     }
 
@@ -73,21 +72,21 @@ public class LoadManager {
 
                 PriorityQueue<City> collection = gson.fromJson(jsonString.toString(), collectionType);
 
-                App.logger.info("Коллекция успешна загружена!");
+                ServerApp.logger.info("Коллекция успешна загружена!");
                 return collection;
 
             } catch (FileNotFoundException exception) {
-                App.logger.error("Загрузочный файл не найден!");
+                ServerApp.logger.error("Загрузочный файл не найден!");
             } catch (NoSuchElementException exception) {
-                App.logger.error("Загрузочный файл пуст!");
+                ServerApp.logger.error("Загрузочный файл пуст!");
             } catch (JsonParseException exception) {
-                App.logger.error("В загрузочном файле не обнаружена необходимая коллекция!");
+                ServerApp.logger.error("В загрузочном файле не обнаружена необходимая коллекция!");
             } catch (IllegalStateException | IOException exception) {
-                App.logger.error("Непредвиденная ошибка!");
+                ServerApp.logger.error("Непредвиденная ошибка!");
                 System.exit(0);
             }
         } else {
-            App.logger.error("Аргумент командной строки с загрузочным файлом не найден!");
+            ServerApp.logger.error("Аргумент командной строки с загрузочным файлом не найден!");
         }
         return new PriorityQueue<>();
     }

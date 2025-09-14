@@ -1,6 +1,6 @@
 package client.netw;
 
-import client.App;
+import client.ClientApp;
 import common.build.request.Request;
 import common.build.response.Response;
 
@@ -27,7 +27,7 @@ public class TCP {
     private final DatagramChannel client;
     private final InetSocketAddress addr;
 
-    private final Logger logger = LoggerFactory.getLogger(App.class);
+    private final Logger logger = LoggerFactory.getLogger(ClientApp.class);
 
     /**
      * Instantiates a new Udp.

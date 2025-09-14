@@ -4,7 +4,7 @@ import com.google.common.collect.Iterables;
 import common.model.City;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import server.App;
+import server.ServerApp;
 import server.managers.LoadManager;
 
 import java.time.LocalDateTime;
@@ -19,7 +19,7 @@ public class CityRepository {
     private LocalDateTime lastInitTime;
     private LocalDateTime lastSaveTime;
     private final LoadManager loadManager;
-    private static final Logger logger = LoggerFactory.getLogger(App.class);
+    private static final Logger logger = LoggerFactory.getLogger(ServerApp.class);
 
     /**
      * Instantiates a new City being repository.
@@ -207,5 +207,8 @@ public class CityRepository {
             info.append("\n\n");
         }
         return info.substring(0, info.length() - 2);
+    }
+
+    public void exit() {
     }
 }

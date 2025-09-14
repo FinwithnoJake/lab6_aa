@@ -8,7 +8,7 @@ import org.apache.commons.lang3.SerializationException;
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.commons.lang3.SerializationUtils;
 import org.slf4j.Logger;
-import server.App;
+import server.ServerApp;
 
 import common.build.response.NoSuchCommandRes;
 import server.handler.CommandHandler;
@@ -26,7 +26,7 @@ abstract class TCPServer {
     private final CommandHandler commandHandler;
     private Runnable afterHook;
 
-    private final Logger logger = App.logger;
+    private final Logger logger = ServerApp.logger;
 
     private boolean running = true;
 

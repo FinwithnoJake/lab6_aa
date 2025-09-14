@@ -6,14 +6,12 @@ import server.repo.CityRepository;
 
 /**
  * Команда 'add'. Добавляет новый элемент в коллекцию.
- *
  */
 public class Add extends Command {
     private final CityRepository cityRepository;
 
     /**
      * Instantiates a new Add.
-     *
      * @param cityRepository the city repository
      */
     public Add(CityRepository cityRepository) {

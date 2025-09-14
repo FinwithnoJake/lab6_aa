@@ -1,23 +1,25 @@
 package client.command;
 
+import client.netw.TCP;
 import client.util.console.Console;
 import common.util.Commands;
 
 /**
  * Команда 'exit'. Завершает выполнение.
- *
  */
 public class Exit extends Command {
     private final Console console;
+    private final TCP client;
 
     /**
      * Instantiates a new Exit.
-     *
      * @param console the console
+     * @param client  the client
      */
-    public Exit(Console console) {
+    public Exit(Console console, TCP client) {
         super("exit");
         this.console = console;
+        this.client = client;
     }
 
     /**
