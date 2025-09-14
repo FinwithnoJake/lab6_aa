@@ -79,13 +79,9 @@ public class City extends Element {
     public String getName(){
         return name;
     }
-    public Coordinates getCoordinates(){
-        return coordinates;
-    }
+    public Coordinates getCoordinates(){return coordinates;}
     public LocalDate getDate(){return creationDate;}
-    public float getArea(){
-        return area;
-    }
+    public float getArea(){return area;}
     public Long getPopulation(){
         return population;
     }
@@ -147,23 +143,21 @@ public class City extends Element {
                 ;
     }
 
-    /**
-     * public static String[] toArray(City e) {
-     *     var list = new ArrayList<String>();
-     *     list.add(String.valueOf((e.getId())));
-     *     list.add(e.getName());
-     *     list.add(e.getCoordinates().toString());
-     *     list.add(e.getDate().format(DateTimeFormatter.ISO_DATE_TIME));
-     *     list.add(String.valueOf(e.getArea()));
-     *     list.add(e.getPopulation().toString());
-     *     list.add(String.valueOf(e.getMetersAboveSeaLevel()));
-     *     list.add(e.getCarCode().toString());
-     *     list.add(String.valueOf(e.getAgglomeration()));
-     *     list.add(e.getGovernment() == null ? "null" : e.getGovernment().toString());
-     *     list.add(e.getHuman() == null ? "null" : e.getHuman().toString());
-     *     return list.toArray(new String[0]);
-     *     }
-     */
+    public static String[] toArray(City e) {
+    var list = new ArrayList<String>();
+    list.add(String.valueOf((e.getId())));
+    list.add(e.getName());
+    list.add(e.getCoordinates().toString());
+    list.add(e.getDate().format(DateTimeFormatter.ISO_DATE_TIME));
+    list.add(String.valueOf(e.getArea()));
+    list.add(e.getPopulation().toString());
+    list.add(String.valueOf(e.getMetersAboveSeaLevel()));
+    list.add(e.getCarCode().toString());
+    list.add(String.valueOf(e.getAgglomeration()));
+    list.add(e.getGovernment() == null ? "null" : e.getGovernment().toString());
+    list.add(e.getHuman() == null ? "null" : e.getHuman().toString());
+    return list.toArray(new String[0]);
+    }
 
     @Override
     public int compareTo(Element element) {
