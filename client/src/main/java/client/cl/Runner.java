@@ -151,7 +151,7 @@ public class Runner {
      * @return Код завершения.
      */
     private ExitCode launchCommand(String[] userCommand) {
-        if (userCommand[0].equals("")) return ExitCode.OK;
+        if (userCommand[0].isEmpty()) return ExitCode.OK;
         var command = commands.get(userCommand[0]);
 
         if (command == null) {

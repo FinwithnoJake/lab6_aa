@@ -143,15 +143,14 @@ public class CityRepository {
      * Gets by value.
      * @param elementToFind the element to find
      * @return the by value
-     *
-     * public City getByValue(City elementToFind) {
-     *         if (elementToFind == null) {return null;}
-     *         for (City element : collection) {
-     *             if (element.equals(elementToFind)) {return element;}
-     *         }
-     *         return null;
-     *     }
      */
+    public City getByValue(City elementToFind) {
+              if (elementToFind == null) {return null;}
+              for (City element : collection) {
+                  if (element.equals(elementToFind)) {return element;}
+              }
+              return null;
+          }
 
     /**
      * Add int.
@@ -176,7 +175,7 @@ public class CityRepository {
     public void remove(int id) {
         collection.removeIf(person -> person.getId() == id);
     }
-    
+
     /**
      * Clear.
      */
