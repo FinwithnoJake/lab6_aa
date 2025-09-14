@@ -59,6 +59,7 @@ public class Runner {
             put(Commands.INFO, new Info(console, client));
             put(Commands.REMOVE_BY_ID, new RemoveById(console, client));
             put(Commands.SHOW, new Show(console, client));
+            put(Commands.TAIL, new Tail(console, client));
             put(Commands.UPDATE, new Update(console, client));
         }};
     }

@@ -69,6 +69,7 @@ public class ServerApp {
                 register(Commands.INFO, new Info(repository));
                 register(Commands.REMOVE_BY_ID, new RemoveById(repository));
                 register(Commands.SHOW, new Show(repository));
+                register(Commands.TAIL, new Tail(repository));
                 register(Commands.UPDATE, new Update(repository));
             }};
 

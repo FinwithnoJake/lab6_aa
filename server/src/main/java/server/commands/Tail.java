@@ -3,21 +3,22 @@ package server.commands;
 import common.build.request.Request;
 import common.build.response.HeadRes;
 import common.build.response.Response;
+import common.build.response.TailRes;
 import server.repo.CityRepository;
 import server.repo.CityRepository;
 
 /**
- * Команда 'head'. Выводит первый элемент коллекции.
+ * Команда 'tail'. Выводит последний элемент коллекции.
  */
-public class Head extends Command {
+public class Tail extends Command {
     private final CityRepository cityRepository;
 
     /**
-     * Instantiates a new Head.
+     * Instantiates a new Tail.
      * @param cityRepository the city repository
      */
-    public Head(CityRepository cityRepository) {
-        super("head", "вывести первый элемент коллекции");
+    public Tail(CityRepository cityRepository) {
+        super("tail", "вывести последний элемент коллекции");
         this.cityRepository = cityRepository;
     }
 
@@ -28,9 +29,9 @@ public class Head extends Command {
     @Override
     public Response apply(Request request) {
         try {
-            return new HeadRes(cityRepository.first(), null);
+            return new TailRes(cityRepository.last(), null);
         } catch (Exception e) {
-            return new HeadRes(null, e.toString());
+            return new TailRes(null, e.toString());
         }
     }
 }
