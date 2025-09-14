@@ -1,0 +1,163 @@
+package common.model;
+
+import common.util.Element;
+
+import java.io.Serial;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Objects;
+
+public class City extends Element {
+    @Serial
+    private static final long serialVersionUID = 1;
+
+    private final int id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
+    private String name; //Поле не может быть null, Строка не может быть пустой
+    private Coordinates coordinates; //Поле не может быть null
+    private java.time.LocalDate creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
+    private float area; //Значение поля должно быть больше 0
+    private Long population; //Значение поля должно быть больше 0, Поле не может быть null
+    private final float metersAboveSeaLevel;
+    private Long carCode; //Значение поля должно быть больше 0, Максимальное значение поля: 1000, Поле не может быть null
+    private final long agglomeration;
+    private Government government; //Поле не может быть null
+    private Human human; //Поле может быть null
+
+
+    public City(int id, String name, Coordinates coordinates, LocalDate creationDate, float area, Long population, float metersAboveSeaLevel, Long carCode, long agglomeration, Government government, Human human) {
+        this.id = id;
+        this.name = name;
+        this.coordinates = coordinates;
+        this.creationDate = creationDate;
+        this.area = area;
+        this.population = population;
+        this.metersAboveSeaLevel = metersAboveSeaLevel;
+        this.carCode = carCode;
+        this.agglomeration = agglomeration;
+        this.government = government;
+        this.human = human;
+    }
+
+    @Override
+    public boolean validate() {
+        if (id <= 0) return false;
+        if (name == null || name.isEmpty()) return false;
+        if (coordinates == null) return false;
+        if (creationDate == null) return false;
+        if (area <= 0) return false;
+        if (population == null || population <= 0) return false;
+        if (carCode == null || carCode <= 0 || carCode > 1000) return false;
+        if (government == null) return false;
+        if (human != null) return false;
+        return true;
+    }
+
+    public void update(City city) {
+        this.name = city.name;
+        this.coordinates = city.coordinates;
+        this.creationDate = city.creationDate;
+        this.area = city.area;
+        this.population = city.population;
+        this.carCode = city.carCode;
+        this.government = city.government;
+        this.human = city.human;
+    }
+
+    @Override
+    public String toString() {
+        return "City #" + id +
+                " (created on " + creationDate + ")" +
+                "\n Название: " + name +
+                "\n Местоположение: " + coordinates +
+                "\n Создан: " + creationDate +
+                "\n В округе: " + area +
+                "\n Население: " + population +
+                "\n Высота над морем: " + metersAboveSeaLevel +
+                "\n Код региона: " + carCode +
+                "\n Агломерации: " + agglomeration +
+                "\n Тип власти: " + government +
+                "\n Личность: " + (human != null ? human : "None")
+                ;
+    }
+
+
+    @Override
+    public int compareTo(Element element) {
+        return this.id - element.getId();
+    }
+
+    public int getId(){
+        return id;
+    }
+    public String getName(){
+        return name;
+    }
+    public Coordinates getCoordinates(){
+        return coordinates;
+    }
+    public LocalDate getDate(){return creationDate;}
+    public float getArea(){
+        return area;
+    }
+    public Long getPopulation(){
+        return population;
+    }
+    public float getMetersAboveSeaLevel(){
+        return metersAboveSeaLevel;
+    }
+    public Long getCarCode(){
+        return carCode;
+    }
+    public long getAgglomeration(){
+        return agglomeration;
+    }
+    public Government getGovernment(){
+        return government;
+    }
+    public Human getHuman(){
+        return human;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        City that = (City) o;
+        return id == that.id &&
+                Objects.equals(name, that.name) &&
+                Objects.equals(coordinates, that.coordinates) &&
+                Objects.equals(creationDate, that.creationDate) &&
+                Objects.equals(area, that.area) &&
+                Objects.equals(population, that.population) &&
+                Objects.equals(metersAboveSeaLevel, that.metersAboveSeaLevel) &&
+                Objects.equals(carCode, that.carCode) &&
+                Objects.equals(agglomeration, that.agglomeration) &&
+                government == that.government &&
+                Objects.equals(human, that.human);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, coordinates, creationDate, area, population,
+                metersAboveSeaLevel, carCode, agglomeration, government, human);
+    }
+
+
+    public static String[] toArray(City e) {
+    var list = new ArrayList<String>();
+    list.add(String.valueOf(e.getId()));
+    list.add(e.getName());
+    list.add(e.getCoordinates().toString());
+    list.add(e.getDate().format(DateTimeFormatter.ISO_DATE_TIME));
+    list.add(String.valueOf(e.getArea()));
+    list.add(e.getPopulation().toString());
+    list.add(String.valueOf(e.getMetersAboveSeaLevel()));
+    list.add(e.getCarCode().toString());
+    list.add(String.valueOf(e.getAgglomeration()));
+    list.add(e.getGovernment() == null ? "null" : e.getGovernment().toString());
+    list.add(e.getHuman() == null ? "null" : e.getHuman().toString());
+    return list.toArray(new String[0]);
+}
+
+}
