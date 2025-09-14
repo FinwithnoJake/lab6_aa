@@ -176,6 +176,13 @@ public class CityRepository {
         collection.removeIf(person -> person.getId() == id);
     }
 
+
+    /**
+     * ExecuteScript.
+     * @param id the name
+     */
+    
+
     /**
      * Clear.
      */
@@ -210,5 +217,8 @@ public class CityRepository {
     }
 
     public void exit() {
+    }
+
+    public void executeScript(int id) {
     }
 }

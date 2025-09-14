@@ -10,17 +10,17 @@ import java.util.Objects;
 
 public class City extends Element {
     @Serial
-    private static final long serialVersionUID = 1;
+    private static final long serialVersionUID = 1L;
 
-    private final int id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
+    private int id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
     private Coordinates coordinates; //Поле не может быть null
     private java.time.LocalDate creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
     private float area; //Значение поля должно быть больше 0
     private Long population; //Значение поля должно быть больше 0, Поле не может быть null
-    private final float metersAboveSeaLevel;
+    private float metersAboveSeaLevel;
     private Long carCode; //Значение поля должно быть больше 0, Максимальное значение поля: 1000, Поле не может быть null
-    private final long agglomeration;
+    private long agglomeration;
     private Government government; //Поле не может быть null
     private Human human; //Поле может быть null
 
@@ -39,6 +39,10 @@ public class City extends Element {
         this.human = human;
     }
 
+    /**
+     * Валидирует правильность полей.
+     * @return true, если все поля корректны, иначе false.
+     */
     @Override
     public boolean validate() {
         if (id <= 0) return false;
@@ -47,7 +51,9 @@ public class City extends Element {
         if (creationDate == null) return false;
         if (area <= 0) return false;
         if (population == null || population <= 0) return false;
+        if (metersAboveSeaLevel < -11000 || metersAboveSeaLevel >9000) return false;
         if (carCode == null || carCode <= 0 || carCode > 1000) return false;
+        if (agglomeration < 0) return false;
         if (government == null) return false;
         if (human != null) return false;
         return true;
@@ -59,34 +65,14 @@ public class City extends Element {
         this.creationDate = city.creationDate;
         this.area = city.area;
         this.population = city.population;
+        this.metersAboveSeaLevel = city.metersAboveSeaLevel;
         this.carCode = city.carCode;
+        this.agglomeration = city.agglomeration;
         this.government = city.government;
         this.human = city.human;
     }
 
-    @Override
-    public String toString() {
-        return "City #" + id +
-                " (created on " + LocalDate.now() + ")" +
-                "\n Название: " + name +
-                "\n Местоположение: " + coordinates +
-                "\n Создан: " + creationDate +
-                "\n В округе: " + area +
-                "\n Население: " + population +
-                "\n Высота над морем: " + metersAboveSeaLevel +
-                "\n Код региона: " + carCode +
-                "\n Агломерации: " + agglomeration +
-                "\n Тип власти: " + government +
-                "\n Личность: " + (human != null ? human : "None")
-                ;
-    }
-
-
-    @Override
-    public int compareTo(Element element) {
-        return this.id - element.getId();
-    }
-
+    //Getters
     public int getId(){
         return id;
     }
@@ -124,7 +110,8 @@ public class City extends Element {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         City that = (City) o;
-        return id == that.id &&
+        return
+                id == that.id &&
                 Objects.equals(name, that.name) &&
                 Objects.equals(coordinates, that.coordinates) &&
                 Objects.equals(creationDate, that.creationDate) &&
@@ -143,10 +130,26 @@ public class City extends Element {
                 metersAboveSeaLevel, carCode, agglomeration, government, human);
     }
 
+    @Override
+    public String toString() {
+        return "City #" + id +
+                " (created on " + LocalDate.now() + ")" +
+                "\n Название: " + name +
+                "\n Местоположение: " + coordinates +
+                "\n Создан: " + creationDate +
+                "\n В округе: " + area +
+                "\n Население: " + population +
+                "\n Высота над морем: " + metersAboveSeaLevel +
+                "\n Код региона: " + carCode +
+                "\n Агломерации: " + agglomeration +
+                "\n Тип власти: " + government +
+                "\n Личность: " + (human != null ? human : "None")
+                ;
+    }
 
     public static String[] toArray(City e) {
     var list = new ArrayList<String>();
-    list.add(String.valueOf(e.getId()));
+    list.add(String.valueOf((e.getId())));
     list.add(e.getName());
     list.add(e.getCoordinates().toString());
     list.add(e.getDate().format(DateTimeFormatter.ISO_DATE_TIME));
@@ -159,5 +162,13 @@ public class City extends Element {
     list.add(e.getHuman() == null ? "null" : e.getHuman().toString());
     return list.toArray(new String[0]);
 }
+    @Override
+    public int compareTo(Element element) {
+        return this.id - element.getId();
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+
 
 }

@@ -88,7 +88,6 @@ public class Runner {
 
     /**
      * Режим для запуска скрипта.
-     *
      * @param argument Аргумент скрипта
      * @return Код завершения.
      */
@@ -166,7 +165,7 @@ public class Runner {
             }
             case "execute_script" -> {
                 if (!commands.get("execute_script").apply(userCommand)) return ExitCode.ERROR;
-                else return scriptMode(userCommand[1]);
+                else return scriptMode("lab6_aa/city/" + userCommand[1]);
             }
             default -> { if (!command.apply(userCommand)) return ExitCode.ERROR; }
         };

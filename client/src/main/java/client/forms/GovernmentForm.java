@@ -20,7 +20,7 @@ public class GovernmentForm extends Form<Government> {
         Government government;
         while (true) {
             try {
-                console.println("У вас несколько вариантов власти в стране - " + Government.names());
+                console.println("У вас несколько вариантов власти в стране - \n" + Government.names());
                 console.println("Введите свой:");
                 console.ps2();
 

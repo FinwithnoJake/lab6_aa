@@ -36,7 +36,7 @@ public class ServerApp {
      */
     public static void main(String[] args) {
         try {
-            var loadManager = new LoadManager("App.java.json");
+            var loadManager = new LoadManager("App.java");
             var repository = new CityRepository(loadManager);
 
             Runtime.getRuntime().addShutdownHook(new Thread(repository::save));
@@ -62,6 +62,7 @@ public class ServerApp {
             var commandManager = new CommandManager() {{
                 register(Commands.ADD, new Add(repository));
                 register(Commands.CLEAR, new Clear(repository));
+                register(Commands.EXECUTE_SCRIPT, new ExecuteScript(repository));
                 register(Commands.EXIT, new Exit(repository));
                 register(Commands.HEAD, new Head(repository));
                 register(Commands.HELP, new Help(this));

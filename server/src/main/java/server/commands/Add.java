@@ -28,7 +28,7 @@ public class Add extends Command {
         var req = (AddReq) request;
         try {
             if (!req.city.validate()) {
-                return new AddRes(-1, "Поля city не валидны! Cityне добавлен!");
+                return new AddRes(-1, "Поля city не валидны! City не добавлен!");
             }
             var newId = cityRepository.add(req.city);
             return new AddRes(newId, null);
