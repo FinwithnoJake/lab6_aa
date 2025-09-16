@@ -29,7 +29,6 @@ public class ClientApp {
         try {
             var client = new TCP(InetAddress.getLocalHost(), PORT);
             var cl = new Runner(client, console);
-
             cl.interactiveMode();
         } catch (IOException e) {
             logger.info("Невозможно подключиться к серверу.", e);

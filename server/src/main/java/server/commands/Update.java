@@ -1,7 +1,7 @@
 package server.commands;
 
-import common.build.request.*;
-import common.build.response.*;
+import common.req_res.request.*;
+import common.req_res.response.*;
 import server.repo.CityRepository;
 
 /**

@@ -1,7 +1,7 @@
 package server.network;
 
-import common.build.request.Request;
-import common.build.response.Response;
+import common.req_res.request.Request;
+import common.req_res.response.Response;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.SerializationException;
 
@@ -10,7 +10,7 @@ import org.apache.commons.lang3.SerializationUtils;
 import org.slf4j.Logger;
 import server.ServerApp;
 
-import common.build.response.NoSuchCommandRes;
+import common.req_res.response.NoSuchCommandRes;
 import server.handler.CommandHandler;
 
 import java.io.IOException;

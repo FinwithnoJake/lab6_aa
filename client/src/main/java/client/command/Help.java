@@ -2,8 +2,8 @@ package client.command;
 
 import client.netw.TCP;
 import client.util.console.Console;
-import common.build.request.HelpReq;
-import common.build.response.HelpRes;
+import common.req_res.request.HelpReq;
+import common.req_res.response.HelpRes;
 
 import java.io.IOException;
 

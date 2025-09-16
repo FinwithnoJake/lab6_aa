@@ -14,5 +14,37 @@
     "agglomeration": 1,
     "government": "DIARCHY",
     "human": null
+  },
+  {
+    "id": 2,
+    "name": "moscow",
+    "coordinates": {
+      "x": 4,
+      "y": 6
+    },
+    "creationDate": "1148-12-11",
+    "area": 750.0,
+    "population": 1233,
+    "metersAboveSeaLevel": 67.0,
+    "carCode": 10,
+    "agglomeration": 56,
+    "government": "DIARCHY",
+    "human": null
+  },
+  {
+    "id": 3,
+    "name": "Paris",
+    "coordinates": {
+      "x": 48,
+      "y": 2
+    },
+    "creationDate": "0508-01-01",
+    "area": 20.0,
+    "population": 2100,
+    "metersAboveSeaLevel": 33.0,
+    "carCode": 75,
+    "agglomeration": 11000,
+    "government": "DEMOCRACY",
+    "human": null
   }
 ]

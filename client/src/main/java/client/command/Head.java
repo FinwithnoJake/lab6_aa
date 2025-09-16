@@ -3,8 +3,8 @@ package client.command;
 import client.netw.TCP;
 import client.util.console.Console;
 import common.exceptions.*;
-import common.build.request.*;
-import common.build.response.*;
+import common.req_res.request.*;
+import common.req_res.response.*;
 
 import java.io.IOException;
 

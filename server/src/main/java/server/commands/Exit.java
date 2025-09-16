@@ -1,9 +1,8 @@
 package server.commands;
 
-import common.build.response.ClearRes;
-import common.build.request.Request;
-import common.build.response.ExitRes;
-import common.build.response.Response;
+import common.req_res.request.Request;
+import common.req_res.response.ExitRes;
+import common.req_res.response.Response;
 import server.repo.CityRepository;
 
 /**

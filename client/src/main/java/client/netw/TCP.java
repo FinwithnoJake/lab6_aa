@@ -1,8 +1,8 @@
 package client.netw;
 
 import client.ClientApp;
-import common.build.request.Request;
-import common.build.response.Response;
+import common.req_res.request.Request;
+import common.req_res.response.Response;
 
 import com.google.common.primitives.Bytes;
 import org.apache.commons.lang3.SerializationUtils;

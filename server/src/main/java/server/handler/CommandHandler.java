@@ -1,8 +1,8 @@
 package server.handler;
 
-import common.build.request.Request;
-import common.build.response.Response;
-import common.build.response.NoSuchCommandRes;
+import common.req_res.request.Request;
+import common.req_res.response.Response;
+import common.req_res.response.NoSuchCommandRes;
 import server.managers.CommandManager;
 
 /**

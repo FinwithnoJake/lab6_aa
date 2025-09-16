@@ -1,9 +1,9 @@
 package server.commands;
 
-import common.build.request.ExecuteScriptReq;
-import common.build.request.Request;
-import common.build.response.ExecuteScriptRes;
-import common.build.response.Response;
+import common.req_res.request.ExecuteScriptReq;
+import common.req_res.request.Request;
+import common.req_res.response.ExecuteScriptRes;
+import common.req_res.response.Response;
 import server.repo.CityRepository;
 
 import java.io.File;

@@ -21,7 +21,7 @@
     </Appenders>
 
     <Loggers>
-        <!-- Логгер для вашего приложения -->
+        <!-- Логгер для приложения -->
         <Logger name="server" level="INFO">
             <AppenderRef ref="Console"/>
             <AppenderRef ref="File"/>

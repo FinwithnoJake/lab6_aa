@@ -36,15 +36,17 @@ public class ServerApp {
      */
     public static void main(String[] args) {
         try {
-            var loadManager = new LoadManager("App.java");
+            args = new String[]{"App.java.json"};
+            var loadManager = new LoadManager(args[0]);
             var repository = new CityRepository(loadManager);
+            logger.info("Сервер запущен");
 
             Runtime.getRuntime().addShutdownHook(new Thread(repository::save));
 
             //Проверка аргументов командной строки
             if (args.length == 0) {
                 System.out.println("Введите имя загружаемого файла как аргумент командной строки");
-                //System.exit(1);
+                System.exit(1);
             }
 
             // Проверка доступности порта

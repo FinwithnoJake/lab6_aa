@@ -1,7 +1,7 @@
 package server.commands;
 
-import common.build.request.Request;
-import common.build.response.Response;
+import common.req_res.request.Request;
+import common.req_res.response.Response;
 
 /**
  * The interface Executable.
