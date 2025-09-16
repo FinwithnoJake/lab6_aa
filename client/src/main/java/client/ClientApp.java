@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
  * Главный класс клиентского приложения.
  */
 public class ClientApp {
-    private static final int PORT = 8080;
+    private static final int PORT = 13579;
     /**
      * The constant logger.
      */
