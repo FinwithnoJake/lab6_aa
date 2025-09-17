@@ -38,9 +38,9 @@ public class CityRepository {
      * @return the boolean
      */
     public boolean validateAll() {
-        for (var person : new ArrayList<>(get())) {
-            if (!person.validate()) {
-                logger.warn("Объект с id=" + person.getId() + " имеет невалидные поля.");
+        for (var city : new ArrayList<>(get())) {
+            if (!city.validate()) {
+                logger.warn("Объект с id=" + city.getId() + " имеет невалидные поля.");
                 return false;
             }
         }
@@ -173,7 +173,7 @@ public class CityRepository {
      * @param id the id
      */
     public void remove(int id) {
-        collection.removeIf(person -> person.getId() == id);
+        collection.removeIf(city -> city.getId() == id);
     }
 
     /**
@@ -202,8 +202,8 @@ public class CityRepository {
     public String toString() {
         if (collection.isEmpty()) return "Коллекция пуста!";
         var info = new StringBuilder();
-        for (City person : collection) {
-            info.append(person);
+        for (City city : collection) {
+            info.append(city);
             info.append("\n\n");
         }
         return info.substring(0, info.length() - 2);

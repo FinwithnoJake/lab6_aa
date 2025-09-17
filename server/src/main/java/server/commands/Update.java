@@ -32,11 +32,11 @@ public class Update extends Command {
             if (!cityRepository.checkExist(req.id)) {
                 return new UpdateRes("City с таким ID в коллекции нет!");
             }
-            if (!req.updatedPerson.validate()) {
+            if (!req.updatedCity.validate()) {
                 return new UpdateRes( "Поля City не валидны! City не обновлен!");
             }
 
-            cityRepository.getById(req.id).update(req.updatedPerson);
+            cityRepository.getById(req.id).update(req.updatedCity);
             return new UpdateRes(null);
         } catch (Exception e) {
             return new UpdateRes(e.toString());

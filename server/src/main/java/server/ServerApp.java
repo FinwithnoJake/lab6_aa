@@ -36,7 +36,7 @@ public class ServerApp {
      */
     public static void main(String[] args) {
         try {
-            args = new String[]{"App.java.json"};
+            args = new String[]{"city/App.java.json"};
             var loadManager = new LoadManager(args[0]);
             var repository = new CityRepository(loadManager);
             logger.info("Сервер запущен");
@@ -104,3 +104,6 @@ public class ServerApp {
         }
     }
 }
+
+
+// ./gradlew server:run

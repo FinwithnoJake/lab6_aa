@@ -47,8 +47,8 @@ public class Show extends Command {
                 return true;
             }
 
-            for (var person : response.city) {
-                console.println(person + "\n");
+            for (var city : response.city) {
+                console.println(city + "\n");
             }
             return true;
         } catch (WrongAmountOfElements exception) {

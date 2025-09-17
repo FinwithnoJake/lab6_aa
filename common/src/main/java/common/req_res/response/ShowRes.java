@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class ShowRes extends Response {
     /**
-     * The Person.
+     * The City.
      */
     public final List<City> city;
 

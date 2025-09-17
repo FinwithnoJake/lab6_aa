@@ -44,9 +44,9 @@ public class Update extends Command {
             var id = Integer.parseInt(arguments[1]);
 
             console.println("* Введите данные обновленного продукта:");
-            var updatedPerson = (new CityForm(console)).build();
+            var updatedCity = (new CityForm(console)).build();
 
-            var response = (UpdateRes) client.sendAndReceiveCommand(new UpdateReq(id, updatedPerson));
+            var response = (UpdateRes) client.sendAndReceiveCommand(new UpdateReq(id, updatedCity));
             if (response.getError() != null && !response.getError().isEmpty()) {
                 throw new API(response.getError());
             }

@@ -14,17 +14,17 @@ public class UpdateReq extends Request {
     /**
      * The Updated city.
      */
-    public final City updatedPerson;
+    public final City updatedCity;
 
     /**
      * Instantiates a new Update req.
      *
      * @param id            the id
-     * @param updatedPerson the updated person
+     * @param updatedCity the updated city
      */
-    public UpdateReq(int id, City updatedPerson) {
+    public UpdateReq(int id, City updatedCity) {
         super(Commands.UPDATE);
         this.id = id;
-        this.updatedPerson = updatedPerson;
+        this.updatedCity = updatedCity;
     }
 }

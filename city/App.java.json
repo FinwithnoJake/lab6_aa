@@ -46,5 +46,21 @@
     "agglomeration": 11000,
     "government": "DEMOCRACY",
     "human": null
+  },
+  {
+    "id": 4,
+    "name": ":\u0027)",
+    "coordinates": {
+      "x": 52,
+      "y": 228
+    },
+    "creationDate": "1010-01-01",
+    "area": 123456.0,
+    "population": 654321,
+    "metersAboveSeaLevel": 121.0,
+    "carCode": 55,
+    "agglomeration": 1001,
+    "government": "DEMOCRACY",
+    "human": null
   }
 ]

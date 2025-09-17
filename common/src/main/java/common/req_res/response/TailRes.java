@@ -8,7 +8,7 @@ import common.util.Commands;
  */
 public class TailRes extends Response {
     /**
-     * The Person.
+     * The City.
      */
     public final City city;
 
