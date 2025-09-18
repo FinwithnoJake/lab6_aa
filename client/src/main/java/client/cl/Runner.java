@@ -16,7 +16,6 @@ import java.util.*;
 
 /**
  * Класс, запускающий введенные пользователем команды.
- *
  */
 public class Runner {
     /**
@@ -55,7 +54,7 @@ public class Runner {
             put(Commands.EXIT, new Exit(console, client));
             put(Commands.HEAD, new Head(console, client));
             put(Commands.HELP, new Help(console, client));
-            put(Commands.HISTORY, new Help(console, client));
+//            put(Commands.HISTORY, new History(console, client));
             put(Commands.INFO, new Info(console, client));
             put(Commands.REMOVE_BY_ID, new RemoveById(console, client));
             put(Commands.SHOW, new Show(console, client));
@@ -97,7 +96,7 @@ public class Runner {
         ExitCode commandStatus;
         scriptStack.add(argument);
         if (!new File(argument).exists()) {
-            argument = "../" + argument;
+            argument = argument.replace("lab6_aa", "..");
         }
         try (Scanner scriptScanner = new Scanner(new File(argument))) {
             if (!scriptScanner.hasNext()) throw new NoSuchElementException();
@@ -113,12 +112,30 @@ public class Runner {
                     userCommand[1] = userCommand[1].trim();
                 }
                 console.println(console.getPS1() + String.join(" ", userCommand));
+
                 if (userCommand[0].equals("execute_script")) {
-                    for (String script : scriptStack) {
-                        if (userCommand[1].equals(script)) throw new ScriptRecursion();
+                    String scriptPath = userCommand[1];
+
+                    // Проверяем наличие скрипта в стеке
+                    if (scriptStack.contains(scriptPath)) {
+                        throw new ScriptRecursion();
                     }
+
+                    // Добавляем новый скрипт в стек ПЕРЕД выполнением
+                    scriptStack.add(scriptPath);
+
+                    try {
+                        // Выполняем команду
+                        commandStatus = launchCommand(userCommand);
+                    } finally {
+                        // Удаляем путь из стека ПОСЛЕ выполнения
+                        scriptStack.remove(scriptPath);
+                    }
+                } else {
+                    commandStatus = launchCommand(userCommand);
                 }
-                commandStatus = launchCommand(userCommand);
+
+
             } while (commandStatus == ExitCode.OK && scriptScanner.hasNextLine());
 
             Interrogator.setUserScanner(tmpScanner);

@@ -6,8 +6,6 @@ import common.exceptions.*;
 import common.model.*;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.NoSuchElementException;
@@ -31,9 +29,11 @@ public class CityForm extends Form<City> {
                 getGovernment(),
                 getHuman()
         );
+
         if (!city.validate()) throw new InvalidForm("А еще че сказать? Пересобери эту бурду");
         return city;
     }
+
     private String getName() throws IncorrectInputInScript {
         String name;
         var fileMode = Interrogator.fileMode();
@@ -57,9 +57,9 @@ public class CityForm extends Form<City> {
                 System.exit(0);
             }
         }
-
         return name;
     }
+
     private Coordinates getCoordinates() throws IncorrectInputInScript, InvalidForm {
         return new CoordinatesForm(console).build();
     }
@@ -81,7 +81,7 @@ public class CityForm extends Form<City> {
                 LocalDate date = LocalDate.parse(input, formatter);
                 // Дополнительная валидация (например, проверка на будущее время)
                 if (date.isAfter(LocalDate.now().plusYears(1))) {
-                    throw new InvalidForm("Ты еще и путешественник во времени!");
+                    throw new InvalidForm("Ты еще и путешественник во времени!\nЛадно уж, год накинули, с расчетом на скорое открытие, но ты явно борщишь");
                 }
 
                 return date;
@@ -184,7 +184,7 @@ public class CityForm extends Form<City> {
                 if (fileMode) {console.println(input);}
                 float meters = Float.parseFloat(input);
                 if (meters < -11000 || meters > 9000) {
-                    throw new InvalidForm("Значение должно быть в диапазоне от -11000 до 9000 метров\nOr maybe u r an alian?)");
+                    throw new InvalidForm("Значение должно быть в диапазоне от -11000 до 9000 метров\nOr maybe u r an alien?)");
                 }
 
                 return meters; // Возвращаем значение при успешном вводе
@@ -278,7 +278,25 @@ public class CityForm extends Form<City> {
     private Government getGovernment() throws IncorrectInputInScript, InvalidForm{
         return new GovernmentForm(console).build();
     }
-    private Human getHuman() throws IncorrectInputInScript, InvalidForm{
-        return new HumanForm(console).build();
+    private String getHuman() throws IncorrectInputInScript, InvalidForm{
+        String human;
+        var fileMode = Interrogator.fileMode();
+        while (true) {
+            try {
+                console.println("Введите личность:");
+                console.ps2();
+
+                human = Interrogator.getUserScanner().nextLine().trim();
+                if (fileMode) console.println(human);
+                break;
+            } catch (NoSuchElementException exception) {
+                console.printError("Имя не распознано!");
+                if (fileMode) throw new IncorrectInputInScript();
+            } catch (IllegalStateException exception) {
+                console.printError("Непредвиденная ошибка!");
+                System.exit(0);
+            }
+        }
+        return human;
     }
 }

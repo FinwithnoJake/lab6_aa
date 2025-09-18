@@ -338,3 +338,30 @@
 2025-09-17 02:00:19 INFO  ServerApp - Коллекция успешно загружена.
 2025-09-17 02:00:19 INFO  ServerApp - Все загруженные объекты валидны.
 2025-09-17 02:00:19 INFO  ServerApp - Все загруженные объекты валидны.
+2025-09-17 22:42:17 INFO  ServerApp - Коллекция успешно загружена.
+2025-09-17 22:42:17 INFO  ServerApp - Коллекция успешно загружена.
+2025-09-17 22:42:17 INFO  ServerApp - Все загруженные объекты валидны.
+2025-09-17 22:42:17 INFO  ServerApp - Все загруженные объекты валидны.
+2025-09-18 22:07:40 INFO  ServerApp - Коллекция успешно загружена.
+2025-09-18 22:07:40 INFO  ServerApp - Коллекция успешно загружена.
+2025-09-18 22:07:40 INFO  ServerApp - Все загруженные объекты валидны.
+2025-09-18 22:07:40 INFO  ServerApp - Все загруженные объекты валидны.
+2025-09-18 22:07:40 ERROR ServerLogger - Ошибка создания сокета на порту 13579
+java.net.BindException: Address already in use
+	at sun.nio.ch.Net.bind0(Native Method) ~[?:?]
+	at sun.nio.ch.Net.bind(Net.java:555) ~[?:?]
+	at sun.nio.ch.DatagramChannelImpl.bindInternal(DatagramChannelImpl.java:1194) ~[?:?]
+	at sun.nio.ch.DatagramChannelImpl.bind(DatagramChannelImpl.java:1164) ~[?:?]
+	at sun.nio.ch.DatagramSocketAdaptor.bind(DatagramSocketAdaptor.java:107) ~[?:?]
+	at java.net.DatagramSocket.createDelegate(DatagramSocket.java:1426) ~[?:?]
+	at java.net.DatagramSocket.<init>(DatagramSocket.java:330) ~[?:?]
+	at server.network.TCPDatagramServer.<init>(TCPDatagramServer.java:37) ~[main/:?]
+	at server.ServerApp.main(ServerApp.java:79) ~[main/:?]
+2025-09-18 22:07:55 INFO  ServerApp - Коллекция успешно загружена.
+2025-09-18 22:07:55 INFO  ServerApp - Коллекция успешно загружена.
+2025-09-18 22:07:55 INFO  ServerApp - Все загруженные объекты валидны.
+2025-09-18 22:07:55 INFO  ServerApp - Все загруженные объекты валидны.
+2025-09-18 22:09:42 INFO  ServerApp - Коллекция успешно сохранена.
+2025-09-18 22:09:42 INFO  ServerApp - Коллекция успешно сохранена.
+2025-09-18 22:10:28 INFO  ServerApp - Коллекция успешно сохранена.
+2025-09-18 22:10:28 INFO  ServerApp - Коллекция успешно сохранена.

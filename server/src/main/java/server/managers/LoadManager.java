@@ -29,7 +29,7 @@ public class LoadManager {
     private final String fileName;
 
     public LoadManager(String fileName) {
-        if (!(new File(fileName).exists()))  fileName = "city/" + fileName;
+        if (!(new File(fileName).exists()))  fileName = "../" + fileName;
         this.fileName = fileName;
     }
 

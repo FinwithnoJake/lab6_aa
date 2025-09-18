@@ -23,7 +23,7 @@ public class ServerApp {
     /**
      * The constant PORT.
      */
-    public static final int PORT = 13579;
+    public static final int PORT = 1357;
 
     /**
      * The constant logger.

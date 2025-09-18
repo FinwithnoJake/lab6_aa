@@ -15,17 +15,17 @@ public class City extends Element {
     private int id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
     private Coordinates coordinates; //Поле не может быть null
-    private java.time.LocalDate creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
+    private java.time.LocalDate creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически  сделано 2 части - дата создания самого города и дата создания переменной
     private float area; //Значение поля должно быть больше 0
     private Long population; //Значение поля должно быть больше 0, Поле не может быть null
     private float metersAboveSeaLevel;
     private Long carCode; //Значение поля должно быть больше 0, Максимальное значение поля: 1000, Поле не может быть null
     private long agglomeration;
     private Government government; //Поле не может быть null
-    private Human human; //Поле может быть null
+    private String human; //Поле может быть null
 
 
-    public City(int id, String name, Coordinates coordinates, LocalDate creationDate, float area, Long population, float metersAboveSeaLevel, Long carCode, long agglomeration, Government government, Human human) {
+    public City(int id, String name, Coordinates coordinates, LocalDate creationDate, float area, Long population, float metersAboveSeaLevel, Long carCode, long agglomeration, Government government, String human) {
         this.id = id;
         this.name = name;
         this.coordinates = coordinates;
@@ -55,7 +55,6 @@ public class City extends Element {
         if (carCode == null || carCode <= 0 || carCode > 1000) return false;
         if (agglomeration < 0) return false;
         if (government == null) return false;
-        if (human != null) return false;
         return true;
     }
 
@@ -97,7 +96,7 @@ public class City extends Element {
     public Government getGovernment(){
         return government;
     }
-    public Human getHuman(){
+    public String getHuman(){
         return human;
     }
 
